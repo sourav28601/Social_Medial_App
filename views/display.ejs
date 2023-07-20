@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="/favicon.ico">
+
+  <title>Blogger</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+  <!-- font awesome link -->
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+    crossorigin="anonymous"></script>
+
+  <!-- Custom styles for this template -->
+  <link href="/assets/css/styles.css" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="/public/css/style.css"> -->
+</head>
+
+<body>
+
+  
+  <!-- nav start -->
+  <nav class="p-3 bg-secondary text-white navbar navbar-expand-lg navbar-dark ">
+    <div class="container ">
+      <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+        <img src="/assets/images/logo(2).png" width="60" height="45" alt=""
+          style="border-radius:40px;margin-right: 10px;" class="bg-warning">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul
+          class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a href="/display" class="nav-link px-2 text-secondary text-white">Home</a></li>
+          <!-- <li class="nav-item"><a href="/about" class="nav-link px-2 text-white">About</a></li> -->
+          <li class="nav-item"><a href="/" class="nav-link px-2 text-white">Post</a></li>
+          <li class="nav-item"><a href="/mypost/<%=user.id%>" class="nav-link px-2 text-white">My Post</a></li>
+          <!-- <li class="nav-item"><a href="/login" class="nav-link px-2 text-white">Login</a></li> -->
+        </ul>
+        
+        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+          <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
+        </form>
+
+        <div class="mx-2">
+          <button type="button" class="btn btn-outline-light me-2">
+            <a href="/login" class="text-decoration-none"> Login</a>
+          </button>
+          <button type="button" class="btn btn-warning">
+            <a href="/register" class="text-decoration-none text-dark"> Sign-up</a>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+   <!-- nav end -->
+    <!-- <div class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Modal body text goes here.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
+    <!-- <center><h1 class="pb-3">Creat Post</h1></center> -->
+
+    <section class="banner">
+        <div class="banner-box">
+            <div class="intro-text">
+                <!-- <div class="intro-text-box">
+            <h1>Lorem Ipsum is simply dummy text</h1>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+        </div> -->
+            </div>
+            <img src="assets/images/j2.jpg" class="img-fluid" alt="banner">
+        </div>
+    </section>
+ 
+    <section>
+        <div class="album py-5 bg-light">
+            <div class="container">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                    <% allposts.forEach((item)=>{ %>
+                        <div class="col">
+                            <div class="card shadow-sm">
+                                <img src="/imageupload/<%= item.image %>" class="d-block w-100" alt="...">
+                                <div class="card-body">
+                                    <h5 style="color: #ff5f5f ;">
+                                        <%= item.title %>
+                                    </h5> 
+                                    <!-- <p class="card-text"> <%= item.createdAt.toLocaleDateString() %></p> -->
+                                    <p class="card-text">
+                                        <%= item.description.slice(0, 90) %>
+                                    </p>
+                                   
+
+                                   
+
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <a href="/comment/<%= item.id %>" class="btn btn-secondary"> Add Comment</a>
+                                            <!-- <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
+                                                data-bs-target="#exampleModal" data-bs-whatever="@mdo">Comment</button> -->
+                                        </div>
+                                      
+                                        <!-- <h5 style="color: #ff5f5f ;">
+                                            <%= item.comment %>
+                                        </h5>  -->
+                                        <!-- <p class="card-text"> <%= item.createdAt.toLocaleDateString() %></p> -->
+                                        <small class="text-muted">
+                                            <!-- <a href="/admin/viewblog/<%=item._id%>" class="btn btn-primary"><i class="far fa-eye"></i></a> -->
+                                        <a href="/editpost/<%=item.id%>" class="btn btn-success"><i class="fas fa-edit"></i></a>
+                                        <a href="/deletepost/<%=item.id%>" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
+                                        </small>  
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <% item.Comments.forEach((comment) => { %>
+                                            <ul>
+                                                <!-- <li><%=comment.comment %></li> -->
+                                                <li><%= comment.comment %> - by</li> <%= comment.User.name %>
+                                              
+                                            </ul>
+                                            <small class="text-muted">
+                                                <!-- <a href="/admin/viewblog/<%=item._id%>" class="btn btn-primary"><i class="far fa-eye"></i></a> -->
+                                            <a href="/editcomment/<%=comment.id%>" class="btn btn-success"><i class="fas fa-edit"></i></a>
+                                            <a href="/deletecomment/<%=comment.id%>" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
+                                            </small>
+                                          <% }); %>
+                                        <!-- <h5 style="color: #ff5f5f ;">
+                                            <%= item.comment %>
+                                        </h5>  -->
+                                        <!-- <p class="card-text"> <%= item.createdAt.toLocaleDateString() %></p> -->
+                                        
+                                        
+                                    </div>
+                                    
+                                </div>
+                            </div>
+
+                        </div>
+                    <% })%>
+                </div>
+               
+            </div>
+        </div>
+    </section>
+
+  
+   <!-- 
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Comment Now</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="/post" method="post">
+                        <div class="mb-3">
+                            <label for="message-text" class="col-form-label">Comment:</label>
+                            <input type="text" placeholder="comment" name="comment">
+                           
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <%- include('./footer.ejs') %>
