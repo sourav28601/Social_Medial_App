@@ -14,7 +14,6 @@ dotenv.config({path:'.env'})
 var cors = require('cors')
 app.use(cors())
 
-
 app.use(express.json())
 app.use(cookieParser())
 // Middleware

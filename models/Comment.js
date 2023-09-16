@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes, Model) => {
     
     Comment.init(
       {   // Model attributes are defined here
-        comment: {
+      comment: {
           type: DataTypes.STRING,
           allowNull: false,
           required :true

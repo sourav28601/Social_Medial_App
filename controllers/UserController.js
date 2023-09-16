@@ -14,7 +14,7 @@ class UserController{
           req.flash('error','this email is already registered')
             return res.redirect('/register')
           // res.send({ status: "failed", message: "ᴛʜɪꜱ ᴇᴍᴀɪʟ ᴀʟʀᴇᴀᴅʏ ᴇxɪᴛꜱ😓" });
-        } else {
+        }else{
           if (name && email && password && confirmpassword) {
             if (password === confirmpassword) {
               try {

@@ -53,8 +53,8 @@ class PostController {
         console.log(err)
     }
   };
-
-
+  
+   
   static DisplayAllPosts = async (req, res) => { 
     try {
         const allposts = await Post.findAll({
@@ -72,7 +72,6 @@ class PostController {
     }
   };
   
-
   static EditPost = async(req,res) =>{
     // console.log(req.params.id)
     try{

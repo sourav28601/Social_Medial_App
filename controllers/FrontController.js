@@ -26,6 +26,7 @@ class FrontController{
             console.log(error);  
         }
     }
+    
     static register =(req,res)=>{
         try {
             res.render('register',{message:req.flash('error')})

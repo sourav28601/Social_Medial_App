@@ -17,6 +17,7 @@ router.get('/mypost/:id',checkUserAuth,FrontController.MyPost);
 // router.get('/addpost',checkUserAuth,FrontController.post);
 router.get('/comment/:id',FrontController.comment);
 
+
 // UserController
 router.post('/userregister',UserController.RegisterUser);
 router.post('/userlogin',UserController.verifylogin);
@@ -26,7 +27,6 @@ router.post('/userlogin',UserController.verifylogin);
 
 // PostController
 router.post('/post',checkUserAuth,image_middleware,PostController.CreatePost);
-
 router.get('/editpost/:id',checkUserAuth,PostController.EditPost);
 router.post('/updatepost/:id',checkUserAuth,image_middleware,PostController.UpdatePost);
 router.get('/deletepost/:id',checkUserAuth,PostController.DeletePost);
