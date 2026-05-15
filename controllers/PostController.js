@@ -33,14 +33,16 @@ class PostController {
   static CreatePost = async (req, res) => {
     try{
         const{title,description,status,user_id}=req.body;
+        const imageUrl = req.file.location;
+
         const data = await Post.create({
-            title:title,
-            description:description,
-            status:status,
-            // image:image,
-            image:req.file.filename,
-            user_id:user_id
-        })
+          title: title,
+          description: description,
+          status: status,
+          image: imageUrl, // save S3 URL
+          user_id: user_id,
+        });
+
       // if(data && data.id){
       //   await Comment.create({comment:comment,'post_id':data.id});
       // }
@@ -50,7 +52,8 @@ class PostController {
         return res.redirect('/display');
         // res.status(201).json({success: true,data})
     }catch(err){
-        console.log(err)
+        console.log(err);
+        return res.status(500).send("Post Upload failed");
     }
   };
   

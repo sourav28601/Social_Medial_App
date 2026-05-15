@@ -57,6 +57,22 @@ app.set('view engine', 'ejs')
 // public folder setup
 app.use(express.static('public'))
   
+const axios = require("axios");
+
+async function callLambda() {
+  try {
+    const response = await axios.post(
+      "https://zq5m9hcpfd.execute-api.ap-southeast-2.amazonaws.com/default/myFirstNodeLambda",
+      { name: "Sourav" }
+    );
+
+    console.log(response.data);
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+
+callLambda();
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)

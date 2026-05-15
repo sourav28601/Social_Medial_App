@@ -48,7 +48,7 @@
           <!-- <li class="nav-item"><a href="/about" class="nav-link px-2 text-white">About</a></li> -->
           <li class="nav-item"><a href="/" class="nav-link px-2 text-white">Post</a></li>
           <li class="nav-item"><a href="/mypost/<%=user.id%>" class="nav-link px-2 text-white">My Post</a></li>
-          <!-- <li class="nav-item"><a href="/login" class="nav-link px-2 text-white">Login</a></li> -->
+          <li class="nav-item"><a href="/login" class="nav-link px-2 text-white">Login</a></li>
         </ul>
         
         <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
@@ -107,7 +107,7 @@
                     <% allposts.forEach((item)=>{ %>
                         <div class="col">
                             <div class="card shadow-sm">
-                                <img src="/imageupload/<%= item.image %>" class="d-block w-100" alt="...">
+                                <img src="<%= item.image %>" class="d-block w-100" alt="...">
                                 <div class="card-body">
                                     <h5 style="color: #ff5f5f ;">
                                         <%= item.title %>
